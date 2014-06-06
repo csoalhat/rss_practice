@@ -1,0 +1,29 @@
+<%= form_for(@bookmarked_article) do |f| %>
+  <% if @bookmarked_article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookmarked_article.errors.count, "error") %> prohibited this bookmarked_article from being saved:</h2>
+
+      <ul>
+      <% @bookmarked_article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :article %><br />
+    <%= f.text_field :article %>
+  </div>
+  <div class="field">
+    <%= f.label :thought %><br />
+    <%= f.text_area :thought %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

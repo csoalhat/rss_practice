@@ -1,0 +1,27 @@
+<h1>Listing bookmarked_articles</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Article</th>
+    <th>Thought</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bookmarked_articles.each do |bookmarked_article| %>
+  <tr>
+    <td><%= bookmarked_article.user %></td>
+    <td><%= bookmarked_article.article %></td>
+    <td><%= bookmarked_article.thought %></td>
+    <td><%= link_to 'Show', bookmarked_article %></td>
+    <td><%= link_to 'Edit', edit_bookmarked_article_path(bookmarked_article) %></td>
+    <td><%= link_to 'Destroy', bookmarked_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bookmarked article', new_bookmarked_article_path %>
